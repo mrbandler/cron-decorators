@@ -1,9 +1,9 @@
 import * as path from "path";
-import { CronJobs } from "./CronJobs";
+import { CronController } from "./CronJobs";
 import { MetadataArgsStorage } from "./metadata-builder/MetadataArgsStorage";
 
 export * from "./container";
-export * from "./decorators/class/Job";
+export * from "./decorators/class/CronController";
 export * from "./decorators/method/Cron";
 
 /**
@@ -57,20 +57,20 @@ export function registerJobs(jobs: Function[] | string[]): void {
         const handlerDirs = (jobs as any[]).filter(controller => typeof controller === "string");
         jobClasses.push(...importClassesFromDirectories(handlerDirs));
 
-        CronJobs.registerJobs(jobClasses);
+        CronController.registerJobs(jobClasses);
     }
 }
 
 export function startCron(name: string): void {
-    CronJobs.startCron(name);
+    CronController.startCron(name);
 }
 
 export function stopCron(name: string): void {
-    CronJobs.stopCron(name);
+    CronController.stopCron(name);
 }
 
 export function execCron(name: string): void {
-    CronJobs.execCron(name);
+    CronController.execCron(name);
 }
 
 /**

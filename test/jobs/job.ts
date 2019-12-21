@@ -1,9 +1,8 @@
-import { Job } from "../../lib/index";
-import { Cron } from "../../lib/index";
+import { CronController, Cron } from "../../lib/index";
 import { Inject } from "typedi";
 import { GreetService } from "../service/greet.service";
 
-@Job()
+@CronController()
 export class JobController {
     @Inject()
     private greetService!: GreetService;
@@ -13,7 +12,7 @@ export class JobController {
         console.log(this.greetService.greet("Test"));
     }
 
-    @Cron("30sec", "30 * * * * *")
+    @Cron("sec", "30 * * * * *")
     public cronJob(): void {
         console.log("Test: Running every 30 seconds!");
     }

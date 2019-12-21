@@ -13,7 +13,7 @@ export interface ICronJob {
  * @export
  * @class CDSHandler
  */
-export class CronJobs {
+export class CronController {
     private static cronJobs: ICronJob[] = [];
 
     /**
@@ -25,7 +25,7 @@ export class CronJobs {
      * @memberof CronJobs
      */
     public static registerJobs(classes: Function[]): void {
-        const jobs = new MetadataBuilder().buildJobsMetadata(classes);
+        const jobs = new MetadataBuilder().buildControllerMetadata(classes);
         jobs.forEach(job => {
             job.crons.forEach(c => {
                 const cronParams: cron.CronJobParameters = {
@@ -58,5 +58,9 @@ export class CronJobs {
     public static execCron(name: string): void {
         const crons = this.cronJobs.filter(c => c.cronMetadata.name === name);
         crons.forEach(c => c.cronMetadata.exec());
+    }
+
+    public static getCron(name: string): cron.CronJob[] {
+        return this.cronJobs.filter(c => c.cronMetadata.name === name).map(c => c.job);
     }
 }

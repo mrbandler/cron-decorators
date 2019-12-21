@@ -1,5 +1,5 @@
 import { getMetadataArgsStorage } from "../index";
-import { JobMetadata } from "../metadata/JobMetadata";
+import { ControllerMetadata } from "../metadata/ControllerMetadata";
 import { CronMetadata } from "../metadata/CronMetadata";
 
 /**
@@ -16,8 +16,8 @@ export class MetadataBuilder {
      * @returns {Job[]} Build handler metadata.
      * @memberof MetadataBuilder
      */
-    public buildJobsMetadata(classes?: Function[]): JobMetadata[] {
-        return this.createJobs(classes);
+    public buildControllerMetadata(classes?: Function[]): ControllerMetadata[] {
+        return this.createController(classes);
     }
 
     /**
@@ -27,14 +27,14 @@ export class MetadataBuilder {
      * @returns {Job[]} Created handler metadata.
      * @memberof MetadataBuilder
      */
-    private createJobs(classes?: Function[]): JobMetadata[] {
-        const jobs = !classes ? getMetadataArgsStorage().jobsMetadata : getMetadataArgsStorage().filterJobsMetadataForClasses(classes);
+    private createController(classes?: Function[]): ControllerMetadata[] {
+        const controllers = !classes ? getMetadataArgsStorage().controllerMetadata : getMetadataArgsStorage().filterControllerMetadataForClasses(classes);
 
-        return jobs.map(jobArgs => {
-            const job = new JobMetadata(jobArgs);
-            job.crons = this.createCrons(job);
+        return controllers.map(controllerArgs => {
+            const controller = new ControllerMetadata(controllerArgs);
+            controller.crons = this.createCrons(controller);
 
-            return job;
+            return controller;
         });
     }
 
@@ -45,7 +45,7 @@ export class MetadataBuilder {
      * @returns {CronMetadata[]} Created action metadata.
      * @memberof MetadataBuilder
      */
-    private createCrons(job: JobMetadata): CronMetadata[] {
+    private createCrons(job: ControllerMetadata): CronMetadata[] {
         return getMetadataArgsStorage()
             .filterCronsWithTarget(job.target)
             .map(cronArgs => new CronMetadata(job, cronArgs));

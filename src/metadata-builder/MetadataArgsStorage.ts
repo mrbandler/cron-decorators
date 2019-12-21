@@ -1,4 +1,4 @@
-import { IJobMetadataArgs } from "../metadata/args/IJobMetadataArgs";
+import { IControllerMetadataArgs } from "../metadata/args/IControllerMetadataArgs";
 import { ICronMetadataArgs } from "../metadata/args/ICronMetadataArgs";
 
 /**
@@ -15,7 +15,7 @@ export class MetadataArgsStorage {
      * @type {IHandlerMetadataArgs[]}
      * @memberof MetadataArgsStorage
      */
-    private jobs: IJobMetadataArgs[] = [];
+    private controller: IControllerMetadataArgs[] = [];
 
     /**
      * Action metadata arguments.
@@ -33,8 +33,8 @@ export class MetadataArgsStorage {
      * @type {IHandlerMetadataArgs[]}
      * @memberof MetadataArgsStorage
      */
-    get jobsMetadata(): IJobMetadataArgs[] {
-        return this.jobs;
+    get controllerMetadata(): IControllerMetadataArgs[] {
+        return this.controller;
     }
 
     /**
@@ -43,8 +43,8 @@ export class MetadataArgsStorage {
      * @param {IHandlerMetadataArgs} metadata Metadata arguments.
      * @memberof MetadataArgsStorage
      */
-    public addJobMetadata(metadata: IJobMetadataArgs): void {
-        this.jobs.push(metadata);
+    public addControllerMetadata(metadata: IControllerMetadataArgs): void {
+        this.controller.push(metadata);
     }
 
     /**
@@ -54,7 +54,11 @@ export class MetadataArgsStorage {
      * @memberof MetadataArgsStorage
      */
     public addCronMetadata(metadata: ICronMetadataArgs): void {
-        this.crons.push(metadata);
+        if (this.crons.filter(c => c.name === metadata.name).length <= 0) {
+            this.crons.push(metadata);
+        } else {
+            console.warn(`Cron '${metadata.name}' could not be mounted, a cron job with the same name already exists.`);
+        }
     }
 
     /**
@@ -64,8 +68,8 @@ export class MetadataArgsStorage {
      * @returns {IHandlerMetadataArgs[]} Filtered handler metadata.
      * @memberof MetadataArgsStorage
      */
-    public filterJobsMetadataForClasses(classes: Function[]): IJobMetadataArgs[] {
-        return this.jobs.filter(ctrl => {
+    public filterControllerMetadataForClasses(classes: Function[]): IControllerMetadataArgs[] {
+        return this.controller.filter(ctrl => {
             return classes.filter(cls => ctrl.target === cls).length > 0;
         });
     }
@@ -87,7 +91,7 @@ export class MetadataArgsStorage {
      * @memberof MetadataArgsStorage
      */
     public reset(): void {
-        this.jobs = [];
+        this.controller = [];
         this.crons = [];
     }
 }
