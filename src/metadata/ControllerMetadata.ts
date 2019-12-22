@@ -3,7 +3,7 @@ import { IControllerMetadataArgs } from "./args/IControllerMetadataArgs";
 import { CronMetadata } from "./CronMetadata";
 
 /**
- * Handler metadata.
+ * Controller metadata.
  *
  * @export
  * @class JobMetadata
@@ -18,28 +18,37 @@ export class ControllerMetadata {
     target: Function;
 
     /**
+     * Controller namespace.
+     *
+     * @type {string}
+     * @memberof ControllerMetadata
+     */
+    namespace?: string;
+
+    /**
      * Cron metadata.
      *
      * @type {CronMetadata[]}
-     * @memberof JobMetadata
+     * @memberof ControllerMetadata
      */
     crons: CronMetadata[] = [];
 
     /**
      * Default constructor.
      * @param {IControllerMetadataArgs} args Metadata arguments.
-     * @memberof JobMetadata
+     * @memberof ControllerMetadata
      */
     constructor(args: IControllerMetadataArgs) {
         this.target = args.target;
+        this.namespace = args.namespace;
     }
 
     /**
-     * Returns a instance of the handler.
+     * Returns a instance of the controller.
      *
      * @readonly
      * @type {*}
-     * @memberof JobMetadata
+     * @memberof ControllerMetadata
      */
     get instance(): any {
         return getFromContainer(this.target);

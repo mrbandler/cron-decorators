@@ -8,6 +8,5 @@
     "files.eol": "\n",
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "eslint.packageManager": "yarn"
+    }
 }

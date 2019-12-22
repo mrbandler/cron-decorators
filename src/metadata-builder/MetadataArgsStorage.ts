@@ -9,28 +9,28 @@ import { ICronMetadataArgs } from "../metadata/args/ICronMetadataArgs";
  */
 export class MetadataArgsStorage {
     /**
-     * Handler metadata arguments.
+     * Controller metadata arguments.
      *
      * @private
-     * @type {IHandlerMetadataArgs[]}
+     * @type {IControllerMetadataArgs[]}
      * @memberof MetadataArgsStorage
      */
     private controller: IControllerMetadataArgs[] = [];
 
     /**
-     * Action metadata arguments.
+     * Cron metadata arguments.
      *
      * @private
-     * @type {IActionMetadataArgs[]}
+     * @type {ICronMetadataArgs[]}
      * @memberof MetadataArgsStorage
      */
     private crons: ICronMetadataArgs[] = [];
 
     /**
-     * Jobs metadata.
+     * Controller metadata.
      *
      * @readonly
-     * @type {IHandlerMetadataArgs[]}
+     * @type {IControllerMetadataArgs[]}
      * @memberof MetadataArgsStorage
      */
     get controllerMetadata(): IControllerMetadataArgs[] {
@@ -38,9 +38,9 @@ export class MetadataArgsStorage {
     }
 
     /**
-     * Adds handler metadata.
+     * Adds contropller metadata.
      *
-     * @param {IHandlerMetadataArgs} metadata Metadata arguments.
+     * @param {IControllerMetadataArgs} metadata Metadata arguments
      * @memberof MetadataArgsStorage
      */
     public addControllerMetadata(metadata: IControllerMetadataArgs): void {
@@ -48,9 +48,9 @@ export class MetadataArgsStorage {
     }
 
     /**
-     * Adds action metadata.
+     * Adds cron metadata.
      *
-     * @param {IActionMetadataArgs} metadata Metadata arguments.
+     * @param {ICronMetadataArgs} metadata Metadata arguments
      * @memberof MetadataArgsStorage
      */
     public addCronMetadata(metadata: ICronMetadataArgs): void {
@@ -62,10 +62,10 @@ export class MetadataArgsStorage {
     }
 
     /**
-     * Filters handler metadata for given classes.
+     * Filters controller metadata for given classes.
      *
-     * @param {Function[]} classes Handler classes.
-     * @returns {IHandlerMetadataArgs[]} Filtered handler metadata.
+     * @param {Function[]} classes Controller classes
+     * @returns {IControllerMetadataArgs[]} Filtered controller metadata
      * @memberof MetadataArgsStorage
      */
     public filterControllerMetadataForClasses(classes: Function[]): IControllerMetadataArgs[] {
@@ -75,10 +75,10 @@ export class MetadataArgsStorage {
     }
 
     /**
-     * Filters action metadata for given target.
+     * Filters cron metadata for given target.
      *
-     * @param {Function} target Target of the action.
-     * @returns {IActionMetadataArgs[]} Filtered action metadata.
+     * @param {Function} target Target of the cron
+     * @returns {ICronMetadataArgs[]} Filtered cron metadata
      * @memberof MetadataArgsStorage
      */
     public filterCronsWithTarget(target: Function): ICronMetadataArgs[] {

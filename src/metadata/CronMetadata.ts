@@ -50,7 +50,13 @@ export class CronMetadata {
      */
     cronTime: string | Date | moment.Moment;
 
-    options?: ICronOptions;
+    /**
+     * Additional options for the cron job.
+     *
+     * @type {ICronOptions}
+     * @memberof CronMetadata
+     */
+    options: ICronOptions;
 
     /**
      * Default constructor.
@@ -81,6 +87,12 @@ export class CronMetadata {
         return await handlerInstance[this.method].apply(handlerInstance);
     }
 
+    /**
+     * Returns the cron jobs context.
+     *
+     * @returns {*}
+     * @memberof CronMetadata
+     */
     public getContext(): any {
         return this.jobMetadata.instance;
     }

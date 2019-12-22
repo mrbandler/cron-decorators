@@ -10,10 +10,10 @@ import { CronMetadata } from "../metadata/CronMetadata";
  */
 export class MetadataBuilder {
     /**
-     * Builds handler metadata for a given set of handler classes.
+     * Builds controller metadata for a given set of controller classes.
      *
-     * @param {Function[]} [classes] Handler classes.
-     * @returns {Job[]} Build handler metadata.
+     * @param {Function[]} [classes] Controller classes.
+     * @returns {ControllerMetadata[]} Build controller metadata.
      * @memberof MetadataBuilder
      */
     public buildControllerMetadata(classes?: Function[]): ControllerMetadata[] {
@@ -21,10 +21,10 @@ export class MetadataBuilder {
     }
 
     /**
-     * Create handler metadata.
+     * Create controller metadata.
      *
-     * @param {Function[]} [classes] Handler classes to build for.
-     * @returns {Job[]} Created handler metadata.
+     * @param {Function[]} [classes] Controller classes to build for.
+     * @returns {ControllerMetadata[]} Created controller metadata.
      * @memberof MetadataBuilder
      */
     private createController(classes?: Function[]): ControllerMetadata[] {
@@ -39,15 +39,15 @@ export class MetadataBuilder {
     }
 
     /**
-     * Creates action metadata.
+     * Creates cron metadata.
      *
-     * @param {Job} job Handler metadata.
-     * @returns {CronMetadata[]} Created action metadata.
+     * @param {ControllerMetadata} controller Controller metadata.
+     * @returns {CronMetadata[]} Created cron metadata.
      * @memberof MetadataBuilder
      */
-    private createCrons(job: ControllerMetadata): CronMetadata[] {
+    private createCrons(controller: ControllerMetadata): CronMetadata[] {
         return getMetadataArgsStorage()
-            .filterCronsWithTarget(job.target)
-            .map(cronArgs => new CronMetadata(job, cronArgs));
+            .filterCronsWithTarget(controller.target)
+            .map(cronArgs => new CronMetadata(controller, cronArgs));
     }
 }
