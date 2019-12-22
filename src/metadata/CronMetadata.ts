@@ -1,6 +1,6 @@
 import * as moment from "moment";
 import { ICronMetadataArgs } from "./args/ICronMetadataArgs";
-import { JobMetadata } from "./JobMetadata";
+import { ControllerMetadata } from "./ControllerMetadata";
 import { ICronOptions } from "../decorators/options/ICronOptions";
 
 /**
@@ -16,7 +16,7 @@ export class CronMetadata {
      * @type {Job}
      * @memberof CronMetadata
      */
-    jobMetadata: JobMetadata;
+    jobMetadata: ControllerMetadata;
 
     /**
      * Target: Method on the handler class.
@@ -50,7 +50,13 @@ export class CronMetadata {
      */
     cronTime: string | Date | moment.Moment;
 
-    options?: ICronOptions;
+    /**
+     * Additional options for the cron job.
+     *
+     * @type {ICronOptions}
+     * @memberof CronMetadata
+     */
+    options: ICronOptions;
 
     /**
      * Default constructor.
@@ -58,7 +64,7 @@ export class CronMetadata {
      * @param {ICronMetadataArgs} args Action metadata arguments.
      * @memberof CronMetadata
      */
-    constructor(jobMetadata: JobMetadata, args: ICronMetadataArgs) {
+    constructor(jobMetadata: ControllerMetadata, args: ICronMetadataArgs) {
         this.jobMetadata = jobMetadata;
         this.target = args.target;
         this.method = args.method;
@@ -81,6 +87,12 @@ export class CronMetadata {
         return await handlerInstance[this.method].apply(handlerInstance);
     }
 
+    /**
+     * Returns the cron jobs context.
+     *
+     * @returns {*}
+     * @memberof CronMetadata
+     */
     public getContext(): any {
         return this.jobMetadata.instance;
     }

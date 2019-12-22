@@ -41,10 +41,10 @@ export interface ICronMetadataArgs {
     cronTime: string | Date | moment.Moment;
 
     /**
-     * Timezone to execute in.
+     * Additional cron job options.
      *
      * @type {string}
      * @memberof ICronMetadataArgs
      */
-    options?: ICronOptions;
+    options: ICronOptions;
 }
