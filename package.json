@@ -1,6 +1,6 @@
 {
     "name": "cron-decorators",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Typescript decorators for Cron jobs.",
     "main": "lib/index.js",
     "repository": "git@github.com:mrbandler/cron-decorators.git",

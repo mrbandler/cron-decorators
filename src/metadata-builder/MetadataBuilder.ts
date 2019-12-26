@@ -1,4 +1,4 @@
-import { getMetadataArgsStorage } from "../index";
+import { getCronMetadataArgsStorage } from "../index";
 import { ControllerMetadata } from "../metadata/ControllerMetadata";
 import { CronMetadata } from "../metadata/CronMetadata";
 
@@ -28,7 +28,9 @@ export class MetadataBuilder {
      * @memberof MetadataBuilder
      */
     private createController(classes?: Function[]): ControllerMetadata[] {
-        const controllers = !classes ? getMetadataArgsStorage().controllerMetadata : getMetadataArgsStorage().filterControllerMetadataForClasses(classes);
+        const controllers = !classes
+            ? getCronMetadataArgsStorage().controllerMetadata
+            : getCronMetadataArgsStorage().filterControllerMetadataForClasses(classes);
 
         return controllers.map(controllerArgs => {
             const controller = new ControllerMetadata(controllerArgs);
@@ -46,7 +48,7 @@ export class MetadataBuilder {
      * @memberof MetadataBuilder
      */
     private createCrons(controller: ControllerMetadata): CronMetadata[] {
-        return getMetadataArgsStorage()
+        return getCronMetadataArgsStorage()
             .filterCronsWithTarget(controller.target)
             .map(cronArgs => new CronMetadata(controller, cronArgs));
     }

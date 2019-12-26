@@ -1,5 +1,5 @@
 import * as moment from "moment";
-import { getMetadataArgsStorage } from "../../index";
+import { getCronMetadataArgsStorage } from "../../index";
 import { ICronOptions } from "../options/ICronOptions";
 
 /**
@@ -23,7 +23,7 @@ export function Cron(
     }
 ) {
     return (target: Object, key: string | symbol, descriptor: PropertyDescriptor) => {
-        getMetadataArgsStorage().addCronMetadata({
+        getCronMetadataArgsStorage().addCronMetadata({
             target: target.constructor,
             name: name,
             method: key as string,
