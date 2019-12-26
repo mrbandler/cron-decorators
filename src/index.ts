@@ -123,7 +123,7 @@ export function getCrons(namespace?: string): Map<string, cron.CronJob> {
  * @export
  * @returns {MetadataArgsStorage} Metadata arguments storage.
  */
-export function getMetadataArgsStorage(): MetadataArgsStorage {
+export function getCronMetadataArgsStorage(): MetadataArgsStorage {
     if (!(global as any).cdsHandlersMetadataArgsStorage) (global as any).cdsHandlersMetadataArgsStorage = new MetadataArgsStorage();
 
     return (global as any).cdsHandlersMetadataArgsStorage;
