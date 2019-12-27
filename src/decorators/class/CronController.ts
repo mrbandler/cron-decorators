@@ -1,4 +1,4 @@
-import { getCronMetadataArgsStorage } from "../../index";
+import { getMetadataArgsStorage } from "../../index";
 
 /**
  * Job decorator.
@@ -11,7 +11,7 @@ import { getCronMetadataArgsStorage } from "../../index";
  */
 export function CronController(namespace?: string): ClassDecorator {
     return (target: Function) => {
-        getCronMetadataArgsStorage().addControllerMetadata({
+        getMetadataArgsStorage().addControllerMetadata({
             target: target,
             namespace: namespace,
         });
