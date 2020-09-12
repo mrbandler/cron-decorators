@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Tests",
             "skipFiles": ["<node_internals>/**"],
-            "program": "${workspaceFolder}\\dist\\server.js",
+            "program": "${workspaceFolder}/dist/server.js",
             "args": ["--inspect"],
             "outFiles": ["${workspaceFolder}/dist/**/*.js"]
         }

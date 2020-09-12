@@ -4,9 +4,5 @@
     "editor.formatOnSave": true,
     "files.exclude": {
         "**/node_modules": true
-    },
-    "files.eol": "\n",
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
