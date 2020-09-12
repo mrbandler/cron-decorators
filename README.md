@@ -2,14 +2,20 @@
 
 [![npm version](https://badge.fury.io/js/cron-decorators.svg)](https://badge.fury.io/js/cron-decorators) [![pipeline status](https://gitlab.com/mrbandler/cron-decorators/badges/master/pipeline.svg)](https://gitlab.com/mrbandler/cron-decorators/commits/master) [![GitHub License](https://img.shields.io/github/license/mrbandler/cron-decorators)](https://github.com/mrbandler/cron-decorators/blob/master/LICENSE)
 
+[![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/3LTBGYAHQCDE4ZbEiTreJjzgnsDhY6X2D2)](https://en.cryptobadges.io/donate/3LTBGYAHQCDE4ZbEiTreJjzgnsDhY6X2D2)
+[![Donate with Litecoin](https://en.cryptobadges.io/badge/micro/LcHsJH13A8PmHJQwpbWevGUebZwhWNMXgS)](https://en.cryptobadges.io/donate/LcHsJH13A8PmHJQwpbWevGUebZwhWNMXgS)
+[![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0x54499ee409687E9C43589693093D004a0cbfEE72)](https://en.cryptobadges.io/donate/0x54499ee409687E9C43589693093D004a0cbfEE72)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/mrbandler/)
+
 **Package to implement cron jobs via a class based system in Typescript.**
 
 ## Table of Content
 
 1. [Installation](#1-installation) 💻
 2. [Usage](#2-usage) ⌨️
-3. [Bugs and Features](#4-bugs-and-features) 🐞💡
-4. [License](#5-license) 📃
+3. [Bugs and Features](#3-bugs-and-features) 🐞💡
+4. [Buy me a coffee](#4-buy-me-a-coffee) ☕
+5. [License](#5-license) 📃
 
 ## 1. Installation
 
@@ -235,9 +241,19 @@ export class JobController {
 
 Please open a issue when you encounter any bugs 🐞 or if you have an idea for a additional feature 💡.
 
+## 4. Buy me a coffee
+
+[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/mrbandler/)
+
+[![Donate with Bitcoin](https://en.cryptobadges.io/badge/big/3LTBGYAHQCDE4ZbEiTreJjzgnsDhY6X2D2)](https://en.cryptobadges.io/donate/3LTBGYAHQCDE4ZbEiTreJjzgnsDhY6X2D2)
+
+[![Donate with Litecoin](https://en.cryptobadges.io/badge/big/LcHsJH13A8PmHJQwpbWevGUebZwhWNMXgS)](https://en.cryptobadges.io/donate/LcHsJH13A8PmHJQwpbWevGUebZwhWNMXgS)
+
+[![Donate with Ethereum](https://en.cryptobadges.io/badge/big/0x54499ee409687E9C43589693093D004a0cbfEE72)](https://en.cryptobadges.io/donate/0x54499ee409687E9C43589693093D004a0cbfEE72)
+
 ---
 
-## 4. License
+## 5. License
 
 MIT License
 
