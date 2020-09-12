@@ -1,6 +1,8 @@
 # Cron Decorators
 
-[![npm version](https://badge.fury.io/js/cron-decorators.svg)](https://badge.fury.io/js/cron-decorators) [![pipeline status](https://gitlab.com/mrbandler/cron-decorators/badges/master/pipeline.svg)](https://gitlab.com/mrbandler/cron-decorators/commits/master) [![GitHub License](https://img.shields.io/github/license/mrbandler/cron-decorators)](https://github.com/mrbandler/cron-decorators/blob/master/LICENSE)
+[![npm version](https://badge.fury.io/js/cron-decorators.svg)](https://badge.fury.io/js/cron-decorators)
+[![Action status](https://github.com/mrbandler/cron-decorators/workflows/build/badge.svg)](https://github.com/mrbandler/cron-decorators/actions)
+[![GitHub License](https://img.shields.io/github/license/mrbandler/cron-decorators)](https://github.com/mrbandler/cron-decorators/blob/master/LICENSE)
 
 [![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/3LTBGYAHQCDE4ZbEiTreJjzgnsDhY6X2D2)](https://en.cryptobadges.io/donate/3LTBGYAHQCDE4ZbEiTreJjzgnsDhY6X2D2)
 [![Donate with Litecoin](https://en.cryptobadges.io/badge/micro/LcHsJH13A8PmHJQwpbWevGUebZwhWNMXgS)](https://en.cryptobadges.io/donate/LcHsJH13A8PmHJQwpbWevGUebZwhWNMXgS)
@@ -20,7 +22,7 @@
 ## 1. Installation
 
 ```bash
-$ npm install cron-decorators
+$ npm install cron-**decoratorsb**
 ```
 
 OR
