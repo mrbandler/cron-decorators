@@ -32,7 +32,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: cron-decorators-artifacts
-                  path: bin
+                  path: lib
 
     publish:
         needs: build
@@ -45,7 +45,7 @@ jobs:
               uses: actions/download-artifact@v2
               with:
                   name: cron-decorators-artifacts
-                  path: bin
+                  path: lib
 
             - name: Setup node environment
               uses: actions/setup-node@v1.4.2
